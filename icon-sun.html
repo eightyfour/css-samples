@@ -14,6 +14,41 @@
             5 : [p(-1, -9),p(-10, 0),p(-1, 9),p(8, 6),p(8, -6)],
             6 : [p(-1, -9),p(-10, 0),p(-1, 9),p(8, 6),p(8, -6)]
         }
+
+        function arrange(count, center, radiusFunc){
+
+            function pointOnCircumference(_angle, _radius, _center) {
+                if(!_center) _center = { 'x' : 0, 'y' : 0 };
+                return {
+                    'x' : _center.x + _radius * Math.cos(_angle),
+                    'y' : _center.y + _radius * Math.sin(_angle)
+                };
+            }
+            var arr = [];
+            var a = 0;
+            var s = (2 * Math.PI) / count;
+            for(var i = 0; i < count; i++){
+                arr.push(pointOnCircumference(a, radiusFunc() ,center));
+                a += s;
+            }
+
+            return arr;
+
+        }
+
+        function blossom(flower) {
+            var off = 10;
+            var children = [].slice.call(flower.children);
+            var length = children.length;
+            var p = arrange(length,0, function () {return 100;});
+            for (var i = 0; i < length; i++) {
+                var child = children[i];
+                child.style.top = p[i].x + 'px';
+                child.style.left = p[i].y + 'px';
+                child.innerHTML = i;
+            }
+        }
+
         function shine(sun) {
             var off = 10;
             var children = [].slice.call(sun.children);
@@ -33,7 +68,7 @@
             function showShine(idx, max) {
                 if (idx < max) {
                     setTimeout(function () {
-                        shine(suns[idx]);
+                        blossom(suns[idx]);
                         showShine(++idx, max);
                     }, 100);
 
@@ -120,6 +155,113 @@
 
     <div class="sun">
         <div class="wrap">
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+        </div>
+    </div>
+
+    <div class="sun">
+        <div class="wrap">
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+        </div>
+    </div>
+
+    <div class="sun">
+        <div class="wrap">
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+        </div>
+    </div>
+
+    <div class="sun">
+        <div class="wrap">
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+        </div>
+    </div>
+
+    <div class="sun">
+        <div class="wrap">
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+        </div>
+    </div>
+
+    <div class="sun">
+        <div class="wrap">
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+        </div>
+    </div>
+
+    <div class="sun">
+        <div class="wrap">
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+        </div>
+    </div>
+
+    <div class="sun">
+        <div class="wrap">
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
             <div class="icon"></div>
             <div class="icon"></div>
             <div class="icon"></div>
