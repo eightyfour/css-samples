@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+    </script>
+</head>
+<body>
+    <style>
+        .balloon{
+            width: 100px;
+            height: 100px;
+            border-radius: 50% 100% / 50% 100% 0%;
+            background-color: #F00;
+            -webkit-transform: rotate(45deg);
+            margin: 30px;
+            -webkit-animation: 1s balloonWidth infinite alternate;
+        }
+        @-webkit-keyframes balloonWidth {
+            25% {
+                -webkit-transform: rotate(50deg);
+            }
+            50%{
+                border-radius: 100% 50% / 100% 50% 0%;
+            }
+            75% {
+                -webkit-transform: rotate(40deg);
+            }
+        }
+    </style>
+
+
+    <div class="balloon"></div>
+
+</body>
+</html>
