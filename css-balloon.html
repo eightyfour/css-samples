@@ -9,28 +9,57 @@
 <body>
     <style>
         .balloon{
+            box-shadow: -13px -46px 36px 21px rgba(255, 0, 0, 1) inset;
+            /* box-shadow:-7px 29px 104px 21px #F00 inset; */
             width: 100px;
             height: 100px;
             border-radius: 50% 100% / 50% 100% 0%;
-            background-color: #F00;
+            background-color:rgba(0,255,255,0.4);
+            background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+            background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+            background-size:90%;
+
             -webkit-transform: rotate(45deg);
             margin: 30px;
-            -webkit-animation: 1s balloonWidth infinite alternate;
+            -webkit-animation: 1s balloonWidth infinite normal;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
         }
-        @-webkit-keyframes balloonWidth {
-            25% {
-                -webkit-transform: rotate(50deg);
-            }
+        .balloon:hover{
+            background-color:green;
+            box-shadow:-13px 52px 36px 21px #F00 inset;
+        }
+        .balloon:focus,
+        .balloon:active{
+            background-color:purple;
+            box-shadow:-13px -46px 66px -100px #F00 inset;
+        }
+
+        @-webkit-keyframes balloonWidth { 25% {
+            -webkit-transform: rotate(50deg);
+            background-size:80%;
+        }
             50%{
                 border-radius: 100% 50% / 100% 50% 0%;
+                -webkit-transform: rotate(45deg);
+                background-size:60%;
             }
             75% {
                 -webkit-transform: rotate(40deg);
+                background-size:80%;
+            }
+            100% {
+
             }
         }
+
     </style>
 
-
+    <p>Hover me or click me</p>
     <div class="balloon"></div>
 
 </body>
