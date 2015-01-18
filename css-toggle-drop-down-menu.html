@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+
+        html:after{
+            /* add the CSS only label */
+            content: 'CSS ONLY';
+            background-color: rgba(11,111,222,0.6);
+            transform: rotate(-45deg);
+            top: 0;
+            left: 0;
+            width: 12em;
+            height: 2em;
+            position: absolute;
+            font-weight: bold;
+            color: white;
+            line-height: 2em;
+            text-align: center;
+            display: block;
+            margin: 2em 0 0 -3em;
+            box-shadow: 0 0 2px 2px rgba(47,79,79,0.8), 0 0px 4px 1px #2F4F4F, 0px -25px 1px 30px rgba(11,111,222,0.6);
+        }
+
+        h1{
+            display: table;
+            margin: auto;
+        }
+    </style>
+
+    <style>
+
+        /* menu page position */
+        nav {
+            width: 18em;
+            margin: 10em auto;
+        }
+
+        /* menu behavior definitions */
+        nav {
+            position: relative;
+        }
+        nav label.focus-button {
+            position: absolute;
+            z-index: 30;
+            height: 3em;
+            width: 100%;
+        }
+        nav input.focus-button:focus+.tab-wrap,
+        nav input.focus-button:active+.tab-wrap{
+            height: auto;
+        }
+        /* if the element is display none (like the other input) than the focus doesn't work */
+        nav input.focus-button{
+            display: block;
+            position: absolute;
+        }
+        nav .tab-wrap{
+            z-index: 2;
+            height: 0;
+            padding-top: 3em;
+            display: block;
+            overflow: hidden;
+        }
+        nav .tab-wrap:hover{
+            height: auto;
+        }
+        nav label{
+            /* the menu tab */
+            width: 100%;
+            height: 3em;
+            line-height: 3em;
+            display: block;
+            text-align: center;
+            padding: 0;
+            cursor: pointer;
+        }
+        nav input {
+            display: none;
+        }
+        nav input[type="radio"]:checked+label{
+            /* opened menu */
+            font-weight: bold;
+            color: white;
+            z-index: 5;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+
+        /* add design */
+        nav.style-a .tab-wrap label{
+            box-shadow: 0 -1px 1px 1px rgba(0,0,0,0.8) inset;
+            background-color: #778899;
+            transition: color 400ms;
+        }
+        nav.style-a label span {
+            font-size: 2em;
+        }
+        nav.style-a .tab-wrap label:hover, nav.style-a .tab-wrap label:active{
+            color: white;
+        }
+
+        /* add opacity fade effect when menu opens */
+        nav .tab-wrap label{
+            opacity: 0;
+        }
+        nav .tab-wrap:hover label,
+        nav input.focus-button:focus+.tab-wrap label,
+        nav label.focus-button:active+.tab-wrap label,
+        nav .tab-wrap input[type="radio"]:checked+label{
+            opacity: 1;
+            transition: opacity 500ms;
+        }
+    </style>
+</head>
+<body>
+
+    <!--<div class="css-only-label"></div>-->
+
+    <h1>CSS drop down menu</h1>
+
+    <nav class="style-a" tabindex="1">
+
+        <label for="focus-button" class="focus-button"></label>
+        <input id="focus-button" type="checkbox" checked="true" class="focus-button"/>
+
+        <div class="tab-wrap">
+            <input checked="true" id="nav1" type="radio" class="radio" value="1" name="nav"/>
+            <label for="nav1"><span>Apple</span></label>
+
+            <input id="nav2" type="radio" class="radio" value="1" name="nav" />
+            <label for="nav2"><span>Jackfruit</span></label>
+
+            <input id="nav3" type="radio" class="radio" value="1" name="nav"/>
+            <label for="nav3"><span>Mango</span></label>
+
+            <input id="nav4" type="radio" class="radio" value="1" name="nav"/>
+            <label for="nav4"><span>Orange</span></label>
+
+            <input id="nav5" type="radio" class="radio" value="1" name="nav"/>
+            <label for="nav5"><span>tangerine</span></label>
+        </div>
+
+    </nav>
+
+
+</body>
+</html>
