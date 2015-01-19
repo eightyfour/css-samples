@@ -45,6 +45,7 @@
         }
         nav label.focus-button {
             position: absolute;
+            top:0;
             z-index: 30;
             height: 3em;
             width: 100%;
@@ -52,6 +53,10 @@
         nav input.focus-button:focus+.tab-wrap,
         nav input.focus-button:active+.tab-wrap{
             height: auto;
+        }
+        /* click again on menu will remove the focus from input */
+        nav input.focus-button:focus~label.focus-button{
+            z-index:-1;
         }
         /* if the element is display none (like the other input) than the focus doesn't work */
         nav input.focus-button{
@@ -125,7 +130,6 @@
 
     <nav class="style-a" tabindex="1">
 
-        <label for="focus-button" class="focus-button"></label>
         <input id="focus-button" type="checkbox" checked="true" class="focus-button"/>
 
         <div class="tab-wrap">
@@ -144,6 +148,8 @@
             <input id="nav5" type="radio" class="radio" value="1" name="nav"/>
             <label for="nav5"><span>tangerine</span></label>
         </div>
+        
+        <label for="focus-button" class="focus-button"></label>
 
     </nav>
 
